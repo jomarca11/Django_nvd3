@@ -32,8 +32,8 @@ Al abrir el navegador comenzará la carga de los datos en nuestras gráficas. Se
 ## INSTALACION DJANGO
 - Se recomienda usar un entorno como "pythonanywhere" que provee de una maquina lista de manera gratuita.
 - En caso contrario, para realizar la instalación en windows:
-&nbsp;- Descargar e instalar python(2.7 en nuestro caso): https://www.python.org/downloads/release/python-2715/
-&nbsp;- Añadir python al path: ";C:\Python27"
-&nbsp;- Descargar get-pip.py e instalar (en nuestro caso: https://pip.pypa.io/en/stable/installing/): python get-pip.py
-&nbsp;- Añadir al path el pip: ";C:\Python27\Scripts"
-&nbsp;- Instalar django: pip install django
+1. Descargar e instalar python(2.7 en nuestro caso): https://www.python.org/downloads/release/python-2715/
+2. Añadir python al path: ";C:\Python27"
+3. Descargar get-pip.py e instalar (en nuestro caso: https://pip.pypa.io/en/stable/installing/): python get-pip.py
+4. Añadir al path el pip: ";C:\Python27\Scripts"
+5. Instalar django: pip install django
