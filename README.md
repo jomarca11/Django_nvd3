@@ -27,3 +27,13 @@ Para la ejecución web, posicionarse en el path donde se encuentra el "manage.py
 - python manage.py runserver localhost:1234 (localhost variará dependiendo de donde se ejecute, es la ip de la máquina)
 - Ir al navegador e iniciar con la url "localhost:1234/pecDefinitiva/home/"
 Al abrir el navegador comenzará la carga de los datos en nuestras gráficas. Se ha introducido un "loader" para dejar constancia de que los datos siguen cargando. Esta tardanza viene dada por la forma en que se leen, tratan y almacenan los datos.
+
+
+## INSTALACION DJANGO
+- Se recomienda usar un entorno como "pythonanywhere" que provee de una maquina lista de manera gratuita.
+- En caso contrario, para realizar la instalación en windows:
+&nbsp;- Descargar e instalar python(2.7 en nuestro caso): https://www.python.org/downloads/release/python-2715/
+&nbsp;- Añadir python al path: ";C:\Python27"
+&nbsp;- Descargar get-pip.py e instalar (en nuestro caso: https://pip.pypa.io/en/stable/installing/): python get-pip.py
+&nbsp;- Añadir al path el pip: ";C:\Python27\Scripts"
+&nbsp;- Instalar django: pip install django
