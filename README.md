@@ -2,8 +2,8 @@
 
 ## AUTORES
 
-Rubén Cumbreño Juan
-Alejandro Sanz García
+- Rubén Cumbreño Juan
+- Alejandro Sanz García
 
 ## DESCRIPCION
 
