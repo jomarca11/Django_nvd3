@@ -1,0 +1,233 @@
+{% load staticfiles %}
+<HTML>
+<head>
+	<meta charset="UTF-8">
+	
+	<!-- CSS Files -->
+	<link href="http://nvd3.org/assets/css/nv.d3.css" rel="stylesheet">
+	
+	<!-- BOOTSTRAP -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+	
+	<!-- CSS DEL ARCHIVO -->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}" />
+	
+	
+	<!-- JS Files -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.js"></script>
+	
+	<!-- Libreria de D3-->
+	<script src="http://nvd3.org/assets/lib/d3.v3.js"></script>
+	
+	<!-- Libreria de NV D3-->
+    <script src="http://nvd3.org/assets/js/nv.d3.js"></script>
+	
+	<!-- Libreria de Highcharts -->
+	<script src="https://code.highcharts.com/highcharts.js"></script>
+	<script src="https://code.highcharts.com/modules/wordcloud.js"></script>
+	
+	<!-- JS DEL ARCHIVO -->
+	<script type="text/javascript" src="{% static 'js/home.js' %}"></script> 
+	
+</head>
+
+
+<body>
+	<div class="page">
+		<div class="contains">
+			<!-- Menu -->
+			<nav class="navbar navbar-inverse">
+				<div class="container-fluid">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>                        
+						</button>
+						<div class = "title">
+							<a class="navbar-brand">UAH - Master en Business Intelligence and Data Science</a>
+						</div>
+					</div>
+					<div class="collapse navbar-collapse" id="myNavbar">
+						<ul class="nav navbar-nav">
+							<li class="active"><a id="page">Home</a></li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+			<!-- Loader -->
+			<div id="progressMaintenance2" class="loader2"></div>
+			
+			
+			
+			
+			<!-- Resto de pagina que cambia -->
+			<div class="subContent" id="subPage" >
+				<div class="container-fluid text-center">
+					<div class="col-sm-2 menu_left">
+						<div class="subBloque">
+							<div class="row subTitle">Asignatura:</div>
+							<p class ="subText">Desarrollo Visualización</p>
+						</div>
+		
+						<div class="subBloque">
+							<div class="row subTitle">Realizado por:</div>
+							<p class ="subText">Rubén Cumbreño Juan</p>
+							<p class ="subText">Alejandro Sanz García</p>
+						</div>
+						
+						<div class="subBloque">
+							<div class="row subTitle">Fecha de entrega:</div>
+							<p class ="subText">07/07/2018</p>
+						</div>
+						
+						<div class="subBloque">
+							<button type="button" class="btn btn-info btn-lg informe" data-toggle="modal" data-target="#informe">Informe</button>
+						</div>
+					</div>
+					
+					<div class="col-sm-3"></div>
+					
+					<div class="col-sm-9 contentGraph">
+						<div class="row visible">
+							<div class="col-md-8">
+								<div class="row titleGraph">
+									<div class="textTitleGraph">CALIDAD MEDIA POR PAIS</div>
+								</div>
+								<div id="barChart" class="tipoGrafica1">
+									<svg></svg>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="row titleGraph">
+									<div class="textTitleGraph">PRECIO MEDIO POR PAIS ($)</div>
+								</div>
+								<div id="pieChart" class="tipoGrafica1">
+									<svg></svg>
+								</div>
+							</div>
+						</div>
+						<div class="row visible">
+							<div class="col-md-8">
+								<div class="row titleGraph">
+									<div class="textTitleGraph">PRECIO MEDIO POR PUNTUACION ($)</div>
+								</div>
+								<div id="barChart2" class="tipoGrafica1">
+									<svg></svg>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="row titleGraph">
+									<div class="textTitleGraph">VINOS POR PAIS</div>
+								</div>
+								<div id="pieChart2" class="tipoGrafica1">
+									<svg></svg>
+								</div>
+							</div>
+						</div>
+						<div class="row visible">
+							<div class="col-md-12">
+								<div class="row titleGraph">
+									<div class="textTitleGraph">CALIDAD/PRECIO ISRAEL POR PROVINCIA</div>
+								</div>
+								<div id="multiChart">
+									<svg></svg>
+								</div>
+							</div>
+						</div>
+						<div class="row visible">
+							<div class="col-md-12">
+								<div class="row">
+									<div class="textTitleGraph">WORDCLOUD</div>
+								</div>
+								<div id="wordCloud">
+									<svg></svg>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				
+				<!-- Modal -->
+				<div class="modal fade" id="informe" role="dialog">
+					<div class="modal-dialog">
+
+						<!-- Modal content-->
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal">&times;</button>
+								<h4 class="modal-title modalTitle">INFORME</h4>
+							</div>
+							<div class="modal-body">
+								<div class="contenedorTitle">
+									<h4 class="modal-title textModalTitle">Análisis de los datos</h4>
+								</div>
+								<div class="textModal">
+									<p>El análisis de los datos viene adjunto y explicado en un notebook, donde se han tratado los datos con anterioridad para
+									el correcto funcionamiento de la aplicación.</p>
+								</div>
+								
+								<div class="contenedorTitle">
+									<h4 class="modal-title textModalTitle">Justificación del gráfico escogido</h4>
+								</div>
+								<div class="textModal">
+									<p>Se han escogido 4 tipos de gráficos para poder probar la diversidad y las distintas librerías vistas en clase:<br/><br/>
+									&bull; Por un lado tenemos 4 sencillos graficos iniciales realizados con "nvd3" que nos muestran datos relevantes sobre nuestro dataset, de los que posteriormente
+									sacar conclusiones. Tenemos gráficos de "barras horizontales" para mostrar la calidad media por país y el precio medio por puntuación. Estas
+									gráficas se eligen pensando en que nos permiten de manera rapida y visual sacar conclusiones sobre los datos.
+									Y para complementarlas se han añadido dos gráficas de tipo "pie" que nos muestran el precio medio por pais ($) y la cantidad de vinos
+									que tiene cada país. Se han elegido estas gráficas porque nos permiten, en un corto espacio en la web, identificar con facilidad visual, incluso 
+									pudiendo seleccionar o descartar, aquellos paises que nos interese analizar.<br/><br/>
+									&bull; Por otro lado, tras realizar el análisis previo de los datos, se ha decidido usar una grafíca de tipo "scatter", también de "nvd3" para medir la variable
+									"calidad/precio" de las diferentes provincias de Israel. Esta gráfica se adecua de manera gráfica y sencilla a lo que buscamos.<br/><br/>
+									&bull; Por último, para tratar otras librerias se ha pensando en realizar un análisis de las palabras más utilizadas para describir vinos (wordcloud). En este
+									caso se ha trabajado también solo con las descripciones del país "Israel", para identificar las palabras más usadas allí.
+									Esto puede ser muy útil para identificar vinos, en temas de marketing, publicidad, etc. Para ello se ha utilizado la librería "highcharts".
+									</p>
+								</div>
+								
+								<div class="contenedorTitle">
+									<h4 class="modal-title textModalTitle">Origen de la fuente de datos escogida</h4>
+								</div>
+								<div><p>Se ha obtenido la fuente de datos de un dataset de "Kaggle" en la siguiente dirección:
+									<a href="https://www.kaggle.com/zynicide/wine-reviews/data#winemag-data_first150k.csv"> https://www.kaggle.com/zynicide/wine-reviews/data#winemag-data_first150k.csv</a></p></div>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+			
+			
+		</div>
+	</div>
+	
+	<div class="container-fluid footer">
+		<div class="row">
+			<div class="col-md-3 subtitleFooter">
+				<p class="titleFooter">Datos de contacto:</p>
+				<p>ruben.cumbreno@hotmail.com</p>
+				<p>alesanzgar@gmail.com</p>
+			</div>
+			
+			<div class="col-md-3 subtitleFooter">
+				<p class="titleFooter">Entidad:</p>
+				<p>Universidad de Alcalá de Henares</p>
+			</div>
+			
+			<div class="col-md-3 subtitleFooter">
+				<p class="titleFooter">Asignatura:</p>
+				<p>Desarrollo de visualización</p>
+			</div>
+		</div>
+	</div>
+</body>
+
+</HTML>
